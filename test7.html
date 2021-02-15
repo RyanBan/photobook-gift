@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>dropzone 샘플</title> 
+        
+        <link rel="stylesheet" href="dropzone/dist/min/dropzone.min.css" /> 
+    </head> 
+
+    <body> 
+        <h2>dropzone 테스트</h2> 
+    
+
+
+        <div class="dropzone-area" style="overflow-y:auto; overflow-x:hidden; width:100%; height:400px;">       
+            <form name="fname"> 
+                <div class="dropzone" id="fileDropzone"></div> 
+            </form>             
+        </div> 
+            
+        <script src="dropzone/dist/min/dropzone.min.js"></script> 
+        
+        <script> 
+        
+        //fileDropzone dropzone 설정할 태그의 id로 지정 
+        Dropzone.options.fileDropzone = { url: "#", //업로드할 url (ex)컨트롤러) 
+        init: function () { 
+            /* 최초 dropzone 설정시 init을 통해 호출 */ 
+            // var submitButton = document.querySelector("#btn-upload-file"); 
+            var myDropzone = this; //closure 
+            // submitButton.addEventListener("click", function () {
+            //     console.log("업로드");
+            //     //tell Dropzone to process all queued files 
+            //     myDropzone.processQueue(); 
+            // });
+        }, 
+        autoProcessQueue: false, // 자동업로드 여부 (true일 경우, 바로 업로드 되어지며, false일 경우, 서버에는 올라가지 않은 상태임 processQueue() 호출시 올라간다.) 
+        clickable: true, // 클릭가능여부 
+        // thumbnailHeight: 90, // Upload icon size 
+        // thumbnailWidth: 180, // Upload icon size
+        maxFiles: 50, // 업로드 파일수 
+        maxFilesize: 100, // 최대업로드용량 : 100MB 
+        parallelUploads: 99, // 동시파일업로드 수(이걸 지정한 수 만큼 여러파일을 한번에 컨트롤러에 넘긴다.) 
+        addRemoveLinks: true, // 삭제버튼 표시 여부 
+        dictRemoveFile: '삭제', // 삭제버튼 표시 텍스트 
+        uploadMultiple: true, // 다중업로드 기능 
+        }; 
+        </script> 
+    </body> 
+</html>
+
